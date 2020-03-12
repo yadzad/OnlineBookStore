@@ -1,8 +1,11 @@
 package buyerSide;
 import java.io.*;
+
 import java.nio.charset.Charset;
 import java.sql.*;
 import java.util.ArrayList;
+import buyerSide.DBException.BadExecution;
+
 
 public class UserRegistered {
 	// JDBC driver name and database URL
@@ -67,15 +70,34 @@ public class UserRegistered {
 					   userNumbers++;
 			   }
 			   //此处已经有了一个不冲突的用户代码，下一步进行插入操作
+			   int InsertResult = 0;
+			   sql1 = "INSERT INTO User(userNumbers, userPhoneNumbers, 	userMail, userAvatar, userName) VALUES("+userNumbers+", '"+userPhoneNumbers+"', '"+userMail+"', '"+userAvatar+"', '"+userName+"')"; 
+			   InsertResult = stmt.executeUpdate(sql1);
+			   if(InsertResult != 0)
+			   {
+				   //成功插入后设置jsr的字段值
 			
-			   return jsr;
+				   return jsr;
+			   }
+			   else
+			   {
+				   //插入错误，抛出异常
+				   throw new DBException.BadExecution("Error in :Insert User  at 0011 ");                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+			   }
 			}catch(SQLException se){
 			   //Handle errors for JDBC
 			   se.printStackTrace();
+			}
+			catch(BadExecution e){
+				e.printStackTrace();
+				JasonReturn jsrn = new JasonReturn();
+				//jsrn.setFunctionCode("1130");
+				return jsrn;
 			}catch(Exception e){
 			   //Handle errors for Class.forName
 			   e.printStackTrace();
-			}finally{
+			}
+			finally{
 			   //finally block used to close resources
 			   try{
 			      if(stmt!=null)
