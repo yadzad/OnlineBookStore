@@ -7,7 +7,7 @@ public class JasonReturn
     functionCode,  
 	userEmail,
 	userName,
-	userAvtar,
+	userAvatar,
 	userPhoneNumbers,
 	searchText,
 	deliveryAddress,
@@ -27,7 +27,7 @@ public JasonReturn()
  functionCode = "null";
  userEmail = "null";
  userName = "null";
- userAvtar = "null";
+ userAvatar = "null";
  userPhoneNumbers = "null";
  searchText = "null";
  deliveryAddress = "null";
@@ -73,14 +73,14 @@ public JasonReturn()
  {
 	 return userName;
  }
- public void setuserAvtar(String userAvtar)
+ public void setuserAvatar(String userAvatar)
  {
-	 this.userAvtar = userAvtar;
+	 this.userAvatar = userAvatar;
 	 
  }
  public String getuserAvatar()
  {
-	 return userAvtar;
+	 return userAvatar;
  }
  public void setuserPhoneNumbers(String userPhoneNumbers)
  {

@@ -32,38 +32,40 @@ public class UserSignIn {
 				   JasonReturn jsr = new JasonReturn();
 				   
 				   String userPhoneNumbers = js.getuserPhoneNumbers();
-				   String userName = js.getuserName();
-				   String userMail = js.getuserEmail();
-				   String userAvatar = js.getuserAvatar();
-				   int userNumbers =0 ;
+				   String userPassWord = js.getuserPassWord();
+				   String userName = "";
+				   String userAvatar = "";
+				   int userNumbers = 0;
 				   
 				   //字段赋值
 				   
 				   //SQL语句
 				   int count = 0;
-				   String sql1 = "SELECT COUNT(*) AS count FROM User WHERE userNumbers = "+userNumbers;
+				   String sql1 = "SELECT * FROM User WHERE userPhoneNumbers = '"+userNumbers+"' AND userPassWord = '"+userPassWord+"'";
 				   ResultSet rs1 = stmt.executeQuery(sql1);
 				   while(rs1.next())
 				   {
-					   count = rs1.getInt("count");
+					   count = 1;
+					   userName = rs1.getString("userName");
+					   userAvatar = rs1.getString("userAvatar");
+					   userNumbers = rs1.getInt("userNumbers");
+					   
 				   }
 				   rs1.close();
-				   if(count != 0)
+				   if(count == 1)
 				   {
-					   //查找到该账户则返回给前端信息
-					   sql1 = "SELECT * FROM User WHERE userNumbers = "+userNumbers;
-					   rs1 = stmt.executeQuery(sql1);
-					   while(rs1.next())
-					   {
-						   //给相关数据赋值
-					   }
-					   rs1.close();
+					   //查找到该账户并且密码正确则返回给前端信息		
 					   //给jsr赋值
+					   jsr.setfunctionCode("0110");
+					   jsr.setuserNumbers(userNumbers);
+					   jsr.setuserName(userName);
+					   jsr.setuserAvatar(userAvatar);
 					   return jsr;
 				   }
 				   else
 				   {
 					   //没有查找到该用户，返回错误信息
+					   jsr.setfunctionCode("1110");
 					   return jsr;
 				   }
 				}catch(SQLException se){
