@@ -5,7 +5,7 @@ import java.sql.*;
 public class UserSignIn {
 	// JDBC driver name and database URL
 			static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-			static final String DB_URL = "jdbc:mysql://cdb-4cc35yyq.cd.tencentcdb.com:10031/Online_BookStore";
+			static final String DB_URL = "jdbc:mysql://cdb-4cc35yyq.cd.tencentcdb.com:10031/Online_Bookstore";
 
 			//  Database credentials
 			static final String USER = "root";
@@ -32,38 +32,37 @@ public class UserSignIn {
 				   JasonReturn jsr = new JasonReturn();
 				   
 				   String userPhoneNumbers = js.getuserPhoneNumbers();
-				   String userName = js.getuserName();
-				   String userMail = js.getuserEmail();
-				   String userAvatar = js.getuserAvatar();
-				   int userNumbers =0 ;
+				   String userPassWord = js.getuserPassWord();
+				   String userAvatar = "";
+				   String userName = "";
 				   
 				   //字段赋值
 				   
 				   //SQL语句
 				   int count = 0;
-				   String sql1 = "SELECT COUNT(*) AS count FROM User WHERE userNumbers = "+userNumbers;
+				   String sql1 = "SELECT * FROM User WHERE userPhoneNumbers = '"+userPhoneNumbers +"' AND userPassWord = '"+userPassWord+"'";
 				   ResultSet rs1 = stmt.executeQuery(sql1);
 				   while(rs1.next())
 				   {
-					   count = rs1.getInt("count");
+					   count = 1;
+					   userName = rs1.getString("userName");
+					   userAvatar = rs1.getString("userAvatar");
 				   }
 				   rs1.close();
+				   
 				   if(count != 0)
 				   {
 					   //查找到该账户则返回给前端信息
-					   sql1 = "SELECT * FROM User WHERE userNumbers = "+userNumbers;
-					   rs1 = stmt.executeQuery(sql1);
-					   while(rs1.next())
-					   {
-						   //给相关数据赋值
-					   }
-					   rs1.close();
 					   //给jsr赋值
+					   jsr.setuserName(userName);
+					   jsr.setuserAvatar(userAvatar);
+					   jsr.setfunctionCode("0110");
 					   return jsr;
 				   }
 				   else
 				   {
 					   //没有查找到该用户，返回错误信息
+					   jsr.setfunctionCode("1110");
 					   return jsr;
 				   }
 				}catch(SQLException se){

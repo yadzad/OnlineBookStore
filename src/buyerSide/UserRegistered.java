@@ -10,7 +10,7 @@ import buyerSide.DBException.BadExecution;
 public class UserRegistered {
 	// JDBC driver name and database URL
 		static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-		static final String DB_URL = "jdbc:mysql://cdb-4cc35yyq.cd.tencentcdb.com:10031/Online_BookStore";
+		static final String DB_URL = "jdbc:mysql://cdb-4cc35yyq.cd.tencentcdb.com:10031/Online_Bookstore";
 
 		//  Database credentials
 		static final String USER = "root";
@@ -75,7 +75,7 @@ public class UserRegistered {
 			    
 			    */
 			   int InsertResult = 0;
-			   String sql1 = "INSERT INTO User(userPhoneNumbers, userMail, userAvatar, userName) VALUES('"+userPhoneNumbers+"', '"+userEMail+"', '"+userAvatar+"', '"+userName+"')"; 
+			   String sql1 = "INSERT ignore INTO User(userPhoneNumbers, userMail, userAvatar, userName) VALUES('"+userPhoneNumbers+"', '"+userEMail+"', '"+userAvatar+"', '"+userName+"')"; 
 			   InsertResult = stmt.executeUpdate(sql1);
 			   if(InsertResult != 0)
 			   {
@@ -90,7 +90,7 @@ public class UserRegistered {
 				   jsr.setfunctionCode("0110");
 				   jsr.setuserNumbers(userNumbers);
 				   jsr.setuserName(userName);
-				   jsr.setuserAvtar(userAvatar);
+				   jsr.setuserAvatar(userAvatar);
 				   
 				   return jsr;
 			   }
