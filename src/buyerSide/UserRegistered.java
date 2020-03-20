@@ -19,7 +19,7 @@ public class UserRegistered {
 		public static JasonReturn Registered(JasonRecive js){
 			Connection conn = null;
 			Statement stmt = null;
-			String keywords;
+			
 
 			try{
 				
@@ -36,15 +36,17 @@ public class UserRegistered {
 			    
 			   JasonReturn jsr = new JasonReturn();
 			   
-			   String userPhoneNumbers = "";
-			   String userName = "";
-			   String userMail = "";
-			   String userAvatar = "";
+			   String userPhoneNumbers = js.getuserPhoneNumbers();
+			   String userName = js.getuserName();
+			   String userEMail = js.getuserEmail();
+			   String userAvatar = js.getuserAvatar();
+			   String userPassWord = js.getuserPassWord();
 			   int userNumbers =0 ;
 			   
 			   //字段赋值
 			   
 			   //SQL语句
+			   /*
 			   int count = 0;
 			   String sql1 ="SELECT COUNT (*) AS count FROM User";
 			   ResultSet rs1 = stmt.executeQuery(sql1);
@@ -70,13 +72,26 @@ public class UserRegistered {
 					   userNumbers++;
 			   }
 			   //此处已经有了一个不冲突的用户代码，下一步进行插入操作
+			    
+			    */
 			   int InsertResult = 0;
-			   sql1 = "INSERT INTO User(userNumbers, userPhoneNumbers, 	userMail, userAvatar, userName) VALUES("+userNumbers+", '"+userPhoneNumbers+"', '"+userMail+"', '"+userAvatar+"', '"+userName+"')"; 
+			   String sql1 = "INSERT INTO User(userPhoneNumbers, userMail, userAvatar, userName) VALUES('"+userPhoneNumbers+"', '"+userEMail+"', '"+userAvatar+"', '"+userName+"')"; 
 			   InsertResult = stmt.executeUpdate(sql1);
 			   if(InsertResult != 0)
 			   {
+				   sql1 = "SELECT userNumbers, userName, userAvatar FROM User WHERE userPhoneNumbers = '"+ userPhoneNumbers+"'" ;
+				   ResultSet rs1 = stmt.executeQuery(sql1);
+				   while(rs1.next())
+				   {
+					   userNumbers = rs1.getInt("userNumbers");
+				   }
+				   rs1.close();
 				   //成功插入后设置jsr的字段值
-			
+				   jsr.setfunctionCode("0110");
+				   jsr.setuserNumbers(userNumbers);
+				   jsr.setuserName(userName);
+				   jsr.setuserAvtar(userAvatar);
+				   
 				   return jsr;
 			   }
 			   else
@@ -90,8 +105,8 @@ public class UserRegistered {
 			}
 			catch(BadExecution e){
 				e.printStackTrace();
-				JasonReturn jsrn = new JasonReturn();
-				//jsrn.setFunctionCode("1130");
+				  JasonReturn jsrn = new JasonReturn();
+				  jsrn.setfunctionCode("1000");
 				return jsrn;
 			}catch(Exception e){
 			   //Handle errors for Class.forName

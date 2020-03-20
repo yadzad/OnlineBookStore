@@ -13,7 +13,8 @@ public class JasonReturn
 	deliveryAddress,
 	productName,
 	messageText,
-	releaseTime;
+	releaseTime,
+	userPassWord;
 
 private int 
 	userNumbers,
@@ -38,6 +39,7 @@ public JasonReturn()
  purchaseQuantity = -1;
  unitPrice = -1;
  messageNumbers = -1;
+ userPassWord = "null";
 }
  public void setfunctionCode(String functionCode)
  {
@@ -46,6 +48,14 @@ public JasonReturn()
  public String getfunctionCode()
  {
 	 return functionCode;
+ }
+ public void setuserPassWord(String userPassWord)
+ {
+  this.userPassWord = userPassWord;
+ }
+ public String getuserPassWord()
+ {
+	 return userPassWord;
  }
  public void setuserEmail(String userEmail)
  {

@@ -13,7 +13,8 @@ private String
 		deliveryAddress,
 		productName,
 		messageText,
-		releaseTime;
+		releaseTime,
+		userPassWord;
 
 private int 
 		userNumbers,
@@ -92,5 +93,129 @@ public JasonRecive(String functionCode, String s1, String s2, String s3)/*Èý¸öÐÅ
 	}
 
 	}
+
+public void setfunctionCode(String functionCode)
+{
+ this.functionCode = functionCode;
+}
+public String getfunctionCode()
+{
+	 return functionCode;
+}
+public void setuserEmail(String userEmail)
+{
+	 this.userEmail = userEmail;
+}
+public String getuserEmail()
+{
+	 return userEmail;
+}
+public void setuserName(String userName)
+{
+	 this.userName = userName;
+}
+public String getuserName()
+{
+	 return userName;
+}
+public void setuserAvtar(String userAvtar)
+{
+	 this.userAvtar = userAvtar;
+	 
+}
+public String getuserAvatar()
+{
+	 return userAvtar;
+}
+public void setuserPhoneNumbers(String userPhoneNumbers)
+{
+	 this.userPhoneNumbers = userPhoneNumbers;
+}
+public String getuserPhoneNumbers()
+{
+	 return userPhoneNumbers;
+}
+public void setsearchText(String searchText)
+{
+	 this.searchText = searchText;
+}
+public String getsearchText()
+{
+	 return searchText;
+}
+public void setdeliveryAddress(String deliveryAddress)
+{
+	 this.deliveryAddress = deliveryAddress;
+}
+public String getdeliveryAddress()
+{
+	 return deliveryAddress;
+}
+public void setproductName(String productName)
+{
+	 this.productName = productName;
+}
+public String productName()
+{
+	 return productName;
+}
+public void setmessageText(String messageText)
+{
+	 this.messageText = messageText;
+	 
+}
+public String getmessageText()
+{
+	 return messageText;
+}
+public void setreleaseTime(String releaseTime)
+{
+	 this.releaseTime = releaseTime;
+}
+public String getreleaseTime()
+{
+	 return releaseTime;
+}
+public void setuserNumbers(int userNumbers)
+{
+	 this.userNumbers = userNumbers;
+}
+public int getuserNumbers()
+{
+	 return userNumbers;
+	 
+}
+public void setproductNumbers(int productNumbers)
+{
+	 this.productNumbers = productNumbers;
+}
+public int getproductNumbers()
+{
+	 return productNumbers;
+}
+public void setpurchaseQuantity(int purchaseQuantity)
+{
+	 this.purchaseQuantity = purchaseQuantity;
+}
+public int getpurchaseQuantity()
+{
+	 return purchaseQuantity;
+}
+public void setunitPrice(int unitPrice)
+{
+	 this.unitPrice = unitPrice;
+}
+public int getunitPrice()
+{
+	 return unitPrice; 
+}
+public void setmessageNumbers(int messageNumbers)
+{
+	 this.messageNumbers = messageNumbers;
+}
+public int getmessageNumbers()
+{
+	 return messageNumbers;
+}
 }
 

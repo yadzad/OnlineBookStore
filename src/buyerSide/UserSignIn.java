@@ -31,10 +31,10 @@ public class UserSignIn {
 				    
 				   JasonReturn jsr = new JasonReturn();
 				   
-				   String userPhoneNumbers = "";
-				   String userName = "";
-				   String userMail = "";
-				   String userAvatar = "";
+				   String userPhoneNumbers = js.getuserPhoneNumbers();
+				   String userName = js.getuserName();
+				   String userMail = js.getuserEmail();
+				   String userAvatar = js.getuserAvatar();
 				   int userNumbers =0 ;
 				   
 				   //×Ö¶Î¸³Öµ
