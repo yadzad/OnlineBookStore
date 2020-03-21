@@ -36,12 +36,12 @@ public class UserRegistered {
 			    
 			   JasonReturn jsr = new JasonReturn();
 			   
-			   String userPhoneNumbers = js.getuserPhoneNumbers();
-			   String userName = js.getuserName();
-			   String userEMail = js.getuserEmail();
-			   String userAvatar = js.getuserAvatar();
-			   String userPassWord = js.getuserPassWord();
-			   int userNumbers =0 ;
+			   String UserPhoneNumbers = js.getuserPhoneNumbers();
+			   String UserName = js.getuserName();
+			   String UserEMail = js.getuserEmail();
+			   String UserAvatar = js.getuserAvatar();
+			   String UserPassWord = js.getuserPassWord();
+			   int UserNumbers =0 ;
 			   
 			   //字段赋值
 			   
@@ -74,23 +74,34 @@ public class UserRegistered {
 			   //此处已经有了一个不冲突的用户代码，下一步进行插入操作
 			    
 			    */
+			   int PhCount =0;
+			   String sql  ="SELECT COUNT(*) AS count FROM User WHERE  UserPhoneNumbers = '"+UserPhoneNumbers+"'";
+			   ResultSet rs = stmt.executeQuery(sql);
+			   while(rs.next())
+			   {
+				   PhCount = rs.getInt("count");
+			   }
+			   rs.close();
+			   if(PhCount == 0)
+			   {
+			
 			   int InsertResult = 0;
-			   String sql1 = "INSERT ignore INTO User(userPhoneNumbers, userMail, userAvatar, userName) VALUES('"+userPhoneNumbers+"', '"+userEMail+"', '"+userAvatar+"', '"+userName+"')"; 
+			   String sql1 = "REPLACE INTO User(UserPhoneNumbers, UserMail, UserAvatar, UserName, UserPassWord) VALUES('"+UserPhoneNumbers+"', '"+UserEMail+"', '"+UserAvatar+"', '"+UserName+"', "+UserPassWord+")"; 
 			   InsertResult = stmt.executeUpdate(sql1);
 			   if(InsertResult != 0)
 			   {
-				   sql1 = "SELECT userNumbers, userName, userAvatar FROM User WHERE userPhoneNumbers = '"+ userPhoneNumbers+"'" ;
+				   sql1 = "SELECT UserNumbers, UserName, UserAvatar FROM User WHERE UserPhoneNumbers = '"+ UserPhoneNumbers+"'" ;
 				   ResultSet rs1 = stmt.executeQuery(sql1);
 				   while(rs1.next())
 				   {
-					   userNumbers = rs1.getInt("userNumbers");
+					   UserNumbers = rs1.getInt("UserNumbers");
 				   }
 				   rs1.close();
 				   //成功插入后设置jsr的字段值
-				   jsr.setfunctionCode("0110");
-				   jsr.setuserNumbers(userNumbers);
-				   jsr.setuserName(userName);
-				   jsr.setuserAvatar(userAvatar);
+				   jsr.setFunctionCode("0111");
+				   jsr.setUserNumbers(UserNumbers);
+				   jsr.setUserName(UserName);
+				   jsr.setUserAvatar(UserAvatar);
 				   
 				   return jsr;
 			   }
@@ -99,6 +110,12 @@ public class UserRegistered {
 				   //插入错误，抛出异常
 				   throw new DBException.BadExecution("Error in :Insert User  at 0011 ");                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 			   }
+			   }
+			   else
+			   {
+				   jsr.setFunctionCode("1111");
+			   }
+			   
 			}catch(SQLException se){
 			   //Handle errors for JDBC
 			   se.printStackTrace();
@@ -106,7 +123,7 @@ public class UserRegistered {
 			catch(BadExecution e){
 				e.printStackTrace();
 				  JasonReturn jsrn = new JasonReturn();
-				  jsrn.setfunctionCode("1000");
+				  jsrn.setFunctionCode("1000");
 				return jsrn;
 			}catch(Exception e){
 			   //Handle errors for Class.forName

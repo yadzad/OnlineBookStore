@@ -54,15 +54,15 @@ public class UserSignIn {
 				   {
 					   //查找到该账户则返回给前端信息
 					   //给jsr赋值
-					   jsr.setuserName(userName);
-					   jsr.setuserAvatar(userAvatar);
-					   jsr.setfunctionCode("0110");
+					   jsr.setUserName(userName);
+					   jsr.setUserAvatar(userAvatar);
+					   jsr.setFunctionCode("0110");
 					   return jsr;
 				   }
 				   else
 				   {
 					   //没有查找到该用户，返回错误信息
-					   jsr.setfunctionCode("1110");
+					   jsr.setFunctionCode("1110");
 					   return jsr;
 				   }
 				}catch(SQLException se){

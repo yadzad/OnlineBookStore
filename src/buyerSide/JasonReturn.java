@@ -41,134 +41,134 @@ public JasonReturn()
  messageNumbers = -1;
  userPassWord = "null";
 }
- public void setfunctionCode(String functionCode)
+ public void setFunctionCode(String functionCode)
  {
   this.functionCode = functionCode;
  }
- public String getfunctionCode()
+ public String getFunctionCode()
  {
 	 return functionCode;
  }
- public void setuserPassWord(String userPassWord)
+ public void setUserPassWord(String userPassWord)
  {
   this.userPassWord = userPassWord;
  }
- public String getuserPassWord()
+ public String getUserPassWord()
  {
 	 return userPassWord;
  }
- public void setuserEmail(String userEmail)
+ public void setUserEmail(String userEmail)
  {
 	 this.userEmail = userEmail;
  }
- public String getuserEmail()
+ public String getUserEmail()
  {
 	 return userEmail;
  }
- public void setuserName(String userName)
+ public void setUserName(String userName)
  {
 	 this.userName = userName;
  }
- public String getuserName()
+ public String getUserName()
  {
 	 return userName;
  }
- public void setuserAvatar(String userAvatar)
+ public void setUserAvatar(String userAvatar)
  {
 	 this.userAvatar = userAvatar;
 	 
  }
- public String getuserAvatar()
+ public String getUserAvatar()
  {
 	 return userAvatar;
  }
- public void setuserPhoneNumbers(String userPhoneNumbers)
+ public void setUserPhoneNumbers(String userPhoneNumbers)
  {
 	 this.userPhoneNumbers = userPhoneNumbers;
  }
- public String getuserPhoneNumbers()
+ public String getUserPhoneNumbers()
  {
 	 return userPhoneNumbers;
  }
- public void setsearchText(String searchText)
+ public void setSearchText(String searchText)
  {
 	 this.searchText = searchText;
  }
- public String getsearchText()
+ public String getSearchText()
  {
 	 return searchText;
  }
- public void setdeliveryAddress(String deliveryAddress)
+ public void setDeliveryAddress(String deliveryAddress)
  {
 	 this.deliveryAddress = deliveryAddress;
  }
- public String getdeliveryAddress()
+ public String getDeliveryAddress()
  {
 	 return deliveryAddress;
  }
- public void setproductName(String productName)
+ public void setProductName(String productName)
  {
 	 this.productName = productName;
  }
- public String productName()
+ public String getProductName()
  {
 	 return productName;
  }
- public void setmessageText(String messageText)
+ public void setMessageText(String messageText)
  {
 	 this.messageText = messageText;
 	 
  }
- public String getmessageText()
+ public String getMessageText()
  {
 	 return messageText;
  }
- public void setreleaseTime(String releaseTime)
+ public void setReleaseTime(String releaseTime)
  {
 	 this.releaseTime = releaseTime;
  }
- public String getreleaseTime()
+ public String getReleaseTime()
  {
 	 return releaseTime;
  }
- public void setuserNumbers(int userNumbers)
+ public void setUserNumbers(int userNumbers)
  {
 	 this.userNumbers = userNumbers;
  }
- public int getuserNumbers()
+ public int getUserNumbers()
  {
 	 return userNumbers;
 	 
  }
- public void setproductNumbers(int productNumbers)
+ public void setProductNumbers(int productNumbers)
  {
 	 this.productNumbers = productNumbers;
  }
- public int getproductNumbers()
+ public int getProductNumbers()
  {
 	 return productNumbers;
  }
- public void setpurchaseQuantity(int purchaseQuantity)
+ public void setPurchaseQuantity(int purchaseQuantity)
  {
 	 this.purchaseQuantity = purchaseQuantity;
  }
- public int getpurchaseQuantity()
+ public int getPurchaseQuantity()
  {
 	 return purchaseQuantity;
  }
- public void setunitPrice(int unitPrice)
+ public void setUnitPrice(int unitPrice)
  {
 	 this.unitPrice = unitPrice;
  }
- public int getunitPrice()
+ public int getUnitPrice()
  {
 	 return unitPrice; 
  }
- public void setmessageNumbers(int messageNumbers)
+ public void setMessageNumbers(int messageNumbers)
  {
 	 this.messageNumbers = messageNumbers;
  }
- public int getmessageNumbers()
+ public int getMessageNumbers()
  {
 	 return messageNumbers;
  }
