@@ -5,7 +5,7 @@ public class ExcuteSQL {
 	public static JasonReturn Excute(JasonRecive jsr) 
 	{
 		JasonReturn jsrn_null = new JasonReturn();
-		String FuncitonCode = jsr.getfunctionCode();
+		String FuncitonCode = jsr.getFunctionCode();
 		if(FuncitonCode.equals("0010"))
 		{
 			JasonReturn jsrn = UserSignIn.SigIn(jsr);

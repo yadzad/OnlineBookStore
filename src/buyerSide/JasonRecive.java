@@ -11,8 +11,8 @@ private String	UserPhoneNumbers;
 private String	SearchText;
 private String	DeliveryAddress;
 private String	ProductName;
-private String	MessageText;
-private String	ReleaseTime;
+private String	Messagetext;
+private String	Releasetime;
 private String	UnitPrice;
 private String UserPassWord;
 
@@ -21,263 +21,263 @@ private int	ProductNumbers;
 private int	PurchaseQuantity;
 private int	MessageNumbers;
 public JasonRecive(){}
-/*
-    public JasonRecive(String functionCode, String s1) //一个信息
+
+    public JasonRecive(String FunctionCode, String s1) //一个信息
     {
-    	this.functionCode = functionCode;
-    	if(functionCode == "0020")//用户搜索商品
+    	this.FunctionCode = FunctionCode;
+    	if(FunctionCode == "0020")//用户搜索商品
     	{
-    		this.searchText = s1;
+    		this.SearchText = s1;
     	}
     	
     }
 
-	public JasonRecive(String functionCode, String s1, String s2)//两个信息
+	public JasonRecive(String FunctionCode, String s1, String s2)//两个信息
 	{   
-		this.functionCode = functionCode;
-		if(functionCode == "0010")	//用户请求登录
+		this.FunctionCode = FunctionCode;
+		if(FunctionCode == "0010")	//用户请求登录
 		{
-			this.userPhoneNumbers = s1;
-			this.userPassWord = s2;
+			this.UserPhoneNumbers = s1;
+			this.UserPassWord = s2;
 	         
 		}
-		else if(functionCode == "0030")//用户请求发布留言
+		else if(FunctionCode == "0030")//用户请求发布留言
 		{
-			this.userNumbers = Integer.parseInt(s1);
-			this.messageText = s2;
+			this.UserNumbers = Integer.parseInt(s1);
+			this.Messagetext = s2;
 		}
 	}
 
 
-public JasonRecive(String functionCode, String s1, String s2, String s3)//三个信息
+public JasonRecive(String FunctionCode, String s1, String s2, String s3)//三个信息
 	{   
-	    this.functionCode = functionCode;
+	    this.FunctionCode = FunctionCode;
 	  
 
 	}
-public JasonRecive(String functionCode, String s1, String s2, String s3,String s4)//四个信息
+public JasonRecive(String FunctionCode, String s1, String s2, String s3,String s4)//四个信息
 {
-	this.functionCode = functionCode;
-	if (functionCode == "0022")//用户将商品加入购物车
+	this.FunctionCode = FunctionCode;
+	if (FunctionCode == "0022")//用户将商品加入购物车
 	{
-		this.userNumbers = Integer.parseInt(s1);
-		this.productNumbers = Integer.parseInt(s2);
-		this.productName = s3;
-		this.purchaseQuantity = Integer.parseInt(s4);
+		this.UserNumbers = Integer.parseInt(s1);
+		this.ProductNumbers = Integer.parseInt(s2);
+		this.ProductName = s3;
+		this.PurchaseQuantity = Integer.parseInt(s4);
 	}
-	else if (functionCode == "0040")//用户上架商品
+	else if (FunctionCode == "0040")//用户上架商品
 	{
-		this.userNumbers = Integer.parseInt(s1);
-		this.productNumbers = Integer.parseInt(s2);
-		this.unitPrice = s3;
-		this.purchaseQuantity = Integer.parseInt(s4);
+		this.UserNumbers = Integer.parseInt(s1);
+		this.ProductNumbers = Integer.parseInt(s2);
+		this.UnitPrice = s3;
+		this.PurchaseQuantity = Integer.parseInt(s4);
 		
 	}
-	else if(functionCode == "0050")//用户修改已上架商品
+	else if(FunctionCode == "0050")//用户修改已上架商品
 	{
-		this.userNumbers = Integer.parseInt(s1);
-		this.productNumbers = Integer.parseInt(s2);
-		this.unitPrice = s3;
-		this.purchaseQuantity = Integer.parseInt(s4);
+		this.UserNumbers = Integer.parseInt(s1);
+		this.ProductNumbers = Integer.parseInt(s2);
+		this.UnitPrice = s3;
+		this.PurchaseQuantity = Integer.parseInt(s4);
 	}
 }
-public JasonRecive(String functionCode, String s1, String s2, String s3,String s4,String s5)//五个信息
+public JasonRecive(String FunctionCode, String s1, String s2, String s3,String s4,String s5)//五个信息
 {
-	this.functionCode = functionCode;
-	if (functionCode == "0011")//用户请求注册
+	this.FunctionCode = FunctionCode;
+	if (FunctionCode == "0011")//用户请求注册
 	{
-		this.userEmail = s1;
-	    this.userName = s2;
-	    this.userAvatar = s3;
-	    this.userPhoneNumbers = s4;
-	    this.userPassWord = s5;
+		this.UserEmail = s1;
+	    this.UserName = s2;
+	    this.UserAvatar = s3;
+	    this.UserPhoneNumbers = s4;
+	    this.UserPassWord = s5;
 	}
-	else if(functionCode == "0021")//用户购买商品
+	else if(FunctionCode == "0021")//用户购买商品
 	{
-		this.userNumbers = Integer.parseInt(s1);
-		this.productNumbers = Integer.parseInt(s2);
-		this.productName = s3;
-		this.purchaseQuantity = Integer.parseInt(s4);
-		this.deliveryAddress = s5;
+		this.UserNumbers = Integer.parseInt(s1);
+		this.ProductNumbers = Integer.parseInt(s2);
+		this.ProductName = s3;
+		this.PurchaseQuantity = Integer.parseInt(s4);
+		this.DeliveryAddress = s5;
 	}
-	else if(functionCode == "0023")/*用户购买购物车内所有商品
+	else if(FunctionCode == "0023")//用户购买购物车内所有商品
 	{
-		this.userNumbers = Integer.parseInt(s1);
-		this.productNumbers = Integer.parseInt(s2);
-		this.productName = s3;
-		this.purchaseQuantity = Integer.parseInt(s4);
-		this.deliveryAddress = s5;
+		this.UserNumbers = Integer.parseInt(s1);
+		this.ProductNumbers = Integer.parseInt(s2);
+		this.ProductName = s3;
+		this.PurchaseQuantity = Integer.parseInt(s4);
+		this.DeliveryAddress = s5;
 	}
 
 }
 
-*/
-public String getuserEmail()
+
+public String getUserEmail()
 {
 	 return UserEmail;
 }
 
-public String getuserAvatar()
+public String getUserAvatar()
 {
 	 return UserAvatar;
 }
 
-public String getuserName()
+public String getUserName()
 {
 	 return UserName;
 }
 
-public String getuserPhoneNumbers()
+public String getUserPhoneNumbers()
 {
 	 return UserPhoneNumbers;
 }
 
-public String getsearchText()
+public String getSearchText()
 {
 	 return SearchText;
 }
 
-public String getdeliveryAddress()
+public String getDeliveryAddress()
 {
 	 return DeliveryAddress;
 }
 
-public String getproductName()
+public String getProductName()
 {
 	 return ProductName;
 }
 
-public String getmessageText()
+public String getMessagetext()
 {
-	 return MessageText;
+	 return Messagetext;
 }
 
-public String getreleaseTime()
+public String getReleasetime()
 {
-	 return ReleaseTime;
+	 return Releasetime;
 }
 
-public int getuserNumbers()
+public int getUserNumbers()
 {
 	 return UserNumbers;
 	 
 }
 
-public int getproductNumbers()
+public int getProductNumbers()
 {
 	 return ProductNumbers;
 }
 
-public int getpurchaseQuantity()
+public int getPurchaseQuantity()
 {
 	 return PurchaseQuantity;
 }
 
-public String getunitPrice()
+public String getUnitPrice()
 {
 	 return UnitPrice; 
 }
 
-public int getmessageNumbers()
+public int getMessageNumbers()
 {
 	 return MessageNumbers;
 }
 
-public String getuserPassWord()
+public String getUserPassWord()
 {
 	 return UserPassWord;
 }
 
-public String getfunctionCode()
+public String getFunctionCode()
 {	
-	System.out.println("执行到getfunctionCode");
+
 	 return FunctionCode;
 }
 
 
-public void setFunctionCode(String functionCode)
+public void setFunctionCode(String FunctionCode)
 {
-	System.out.println("执行到setfunctionCode");
-	this.FunctionCode = functionCode;
+	
+	this.FunctionCode = FunctionCode;
 }
 
-public void setUserEmail(String userEmail)
+public void setUserEmail(String UserEmail)
 {
-	System.out.println("执行到setuserEmail");
-	 this.UserEmail = userEmail;
+	
+	 this.UserEmail = UserEmail;
 }
 
-public void setUserName(String userName)
+public void setUserName(String UserName)
 {
-	System.out.println("执行到setuserName");
-	 this.UserName = userName;
+	
+	 this.UserName = UserName;
 }
 
-public void setUserAvatar(String userAvatar)
+public void setUserAvatar(String UserAvatar)
 {
-	 this.UserAvatar = userAvatar;
+	 this.UserAvatar = UserAvatar;
 	 
 }
 
-public void setUserPhoneNumbers(String userPhoneNumbers)
+public void setUserPhoneNumbers(String UserPhoneNumbers)
 {
-	System.out.println("执行到setuserPhoneNumbers");
-	 this.UserPhoneNumbers = userPhoneNumbers;
+	
+	 this.UserPhoneNumbers = UserPhoneNumbers;
 }
 
-public void setSearchText(String searchText)
+public void setSearchText(String SearchText)
 {
-	 this.SearchText = searchText;
+	 this.SearchText = SearchText;
 }
 
-public void setDeliveryAddress(String deliveryAddress)
+public void setDeliveryAddress(String DeliveryAddress)
 {
-	 this.DeliveryAddress = deliveryAddress;
+	 this.DeliveryAddress = DeliveryAddress;
 }
 
-public void setProductName(String productName)
+public void setProductName(String ProductName)
 {
-	 this.ProductName = productName;
+	 this.ProductName = ProductName;
 }
-public void setMessageText(String messageText)
+public void setMessagetext(String Messagetext)
 {
-	 this.MessageText = messageText;
+	 this.Messagetext = Messagetext;
 	 
 }
 
-public void setReleaseTime(String releaseTime)
+public void setReleasetime(String Releasetime)
 {
-	 this.ReleaseTime = releaseTime;
+	 this.Releasetime = Releasetime;
 }
 
-public void setUserNumbers(int userNumbers)
+public void setUserNumbers(int UserNumbers)
 {
-	 this.UserNumbers = userNumbers;
+	 this.UserNumbers = UserNumbers;
 }
 
-public void setProductNumbers(int productNumbers)
+public void setProductNumbers(int ProductNumbers)
 {
-	 this.ProductNumbers = productNumbers;
+	 this.ProductNumbers = ProductNumbers;
 }
 
-public void setPurchaseQuantity(int purchaseQuantity)
+public void setPurchaseQuantity(int PurchaseQuantity)
 {
-	 this.PurchaseQuantity = purchaseQuantity;
+	 this.PurchaseQuantity = PurchaseQuantity;
 }
 
-public void setUnitPrice(String unitPrice)
+public void setUnitPrice(String UnitPrice)
 {
-	 this.UnitPrice = unitPrice;
+	 this.UnitPrice = UnitPrice;
 }
 
-public void setMessageNumbers(int messageNumbers)
+public void setMessageNumbers(int MessageNumbers)
 {
-	 this.MessageNumbers = messageNumbers;
+	 this.MessageNumbers = MessageNumbers;
 }
 
-public void setUserPassWord(String userPassWord)
+public void setUserPassWord(String UserPassWord)
 {
-	 this.UserPassWord = userPassWord;
+	 this.UserPassWord = UserPassWord;
 }
 }
 

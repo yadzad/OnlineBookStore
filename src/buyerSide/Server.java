@@ -12,7 +12,7 @@ public class Server{
      */
     public static void main(String[] args) {
         try {
-            ServerSocket serverSocket = new ServerSocket(8888);
+            ServerSocket serverSocket = new ServerSocket(8089);
             System.out.println("服务端已启动，等待客户端连接..");
 
             while (true) {

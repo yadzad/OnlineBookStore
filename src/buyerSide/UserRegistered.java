@@ -36,11 +36,11 @@ public class UserRegistered {
 			    
 			   JasonReturn jsr = new JasonReturn();
 			   
-			   String UserPhoneNumbers = js.getuserPhoneNumbers();
-			   String UserName = js.getuserName();
-			   String UserEMail = js.getuserEmail();
-			   String UserAvatar = js.getuserAvatar();
-			   String UserPassWord = js.getuserPassWord();
+			   String UserPhoneNumbers = js.getUserPhoneNumbers();
+			   String UserName = js.getUserName();
+			   String UserEMail = js.getUserEmail();
+			   String UserAvatar = js.getUserAvatar();
+			   String UserPassWord = js.getUserPassWord();
 			   int UserNumbers =0 ;
 			   
 			   //×Ö¶Î¸³Öµ

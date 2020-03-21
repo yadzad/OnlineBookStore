@@ -31,8 +31,8 @@ public class UserSignIn {
 				    
 				   JasonReturn jsr = new JasonReturn();
 				   
-				   String userPhoneNumbers = js.getuserPhoneNumbers();
-				   String userPassWord = js.getuserPassWord();
+				   String userPhoneNumbers = js.getUserPhoneNumbers();
+				   String userPassWord = js.getUserPassWord();
 				   String userAvatar = "";
 				   String userName = "";
 				   
